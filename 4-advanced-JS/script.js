@@ -1,4 +1,4 @@
-// Function constructor
+// FUNCTION CONTRUCTOR
 /*
 var john = {
   name: "John",
@@ -31,7 +31,7 @@ console.log(jane.lastName);
 console.log(mark.lastName);
 */
 
-// Object.create
+// OBJECT.CREATE
 /*
 var personProto = {
   calculateAge: function() {
@@ -51,8 +51,8 @@ var jane = Object.create(personProto, {
 });
 */
 
-// Primitives vs objects
-
+// PRIMITIVES VS OBJECTS
+/*
 // Primitives
 var a = 23;
 var b = a;
@@ -86,3 +86,40 @@ change(age, obj);
 
 console.log(age);
 console.log(obj.city);
+*/
+
+// PASSING FUNCTIONS AS ARGUMENTS
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+  var arrRes = [];
+  for (var i = 0; i < arr.length; i++) {
+    arrRes.push(fn(arr[i]));
+  }
+  return arrRes;
+}
+
+function calculateAge(el) {
+  return 2019 - el;
+}
+
+function isFullAge(el) {
+  return el >= 18;
+}
+
+function maxHeartRate(el) {
+  if (el >= 18 && el <= 81) {
+    return Math.round(206.9 - (0.67 * el));
+  } else {
+    return -1;
+  }
+}
+
+var ages = arrayCalc(years, calculateAge);
+var fullAges = arrayCalc(ages, isFullAge);
+var rates = arrayCalc(ages, maxHeartRate);
+
+console.log(ages);
+console.log(fullAges);
+console.log(rates);
