@@ -161,7 +161,7 @@ function game() {
 
 game();
 */
-
+/*
 (function() {
   var score = Math.random() * 10;
   console.log(score >= 5);
@@ -170,6 +170,41 @@ game();
 //console.log(score);
 
 (function(goodLuck) {
-    var score = Math.random() * 10;
-    console.log(score >= 5 - goodLuck);
-  })(5);
+  var score = Math.random() * 10;
+  console.log(score >= 5 - goodLuck);
+})(5);
+*/
+
+// CLOSURES
+
+function retirement(retirementAge) {
+  var a = ' years left until retirement';
+  return function(yearOfBirth) {
+    var age = 2019 - yearOfBirth;
+    console.log(retirementAge - age + a);
+  };
+}
+
+var retirementUS = retirement(66);
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
+
+retirementUS(1990);
+retirementGermany(1990);
+retirementIceland(1990);
+
+// retirement(66)(1990);
+
+function interviewQuestion(job) {
+  return function(name) {
+    if (job === 'designer') {
+      console.log(name + ', can u please explain what UX design is?');
+    } else if (job === 'teacher') {
+      console.log('What subject do u teach, ' + name + '?');
+    } else {
+      console.log('Hello ' + name + ', what do u do?');
+    }
+  };
+}
+
+interviewQuestion('teacher')('John');
