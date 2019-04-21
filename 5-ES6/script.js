@@ -1,4 +1,4 @@
-// Let and const
+// LET AND CONST
 /*
 // ES5
 var name5 = 'Jane Smith';
@@ -12,7 +12,7 @@ let age6 = 23;
 name6 = 'Jane Miller';
 console.log(name6);
 */
-
+/*
 // ES5
 function driversLicence5(passedTest) {
   if (passedTest) {
@@ -58,3 +58,22 @@ for (let i = 0; i < 5; i++) {
 console.log(i);
 
 // With var 'i' will be overwritten - output 0 1 2 3 4 and 5, not 23
+*/
+
+// BLOCKS AND IIFEs
+// ES6
+{
+  const a = 1;
+  let b = 2;
+  var c = 3;
+}
+
+console.log(a + b);
+console.log(c);
+
+// ES5
+(function() {
+  var c = 3;
+})();
+
+console.log(c);
